@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "StudyBuddy - Your AI powered guide to smarter learn",
+  title: "StuddyBuddy - Your AI powered guide to smarter learn",
   description: "Your AI powered guide to smarter learn",
 };
 
