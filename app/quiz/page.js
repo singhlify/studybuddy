@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import axios from "axios";
 
@@ -43,7 +43,7 @@ const fetchQuizQuestions = async (subtopic, setQuiz) => {
   }
 };
 
-export default function QuizPage() {
+function QuizContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const subtopic = searchParams.get("subtopic");
@@ -116,5 +116,13 @@ export default function QuizPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function QuizPage() {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <QuizContent />
+    </Suspense>
   );
 }
