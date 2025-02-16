@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Image from "next/image";
 
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
@@ -60,9 +61,17 @@ const NoteUploader = ({ onNotesSubmit }) => {
   const [notes, setNotes] = useState("");
   
   return (
-    <div className="flex flex-col items-center space-y-4">
+    <div className="w-1/2 flex flex-col items-center space-y-4">
+      <Image
+        src="/logo.png"
+        alt="Study buddy"
+        width={200}
+        height={200}
+        className="rounded"
+      />
+
       <textarea
-        className="w-1/2 p-4 border rounded"
+        className="w-full h-56 p-4 border rounded"
         placeholder="Paste your notes here..."
         value={notes}
         onChange={(e) => setNotes(e.target.value)}
